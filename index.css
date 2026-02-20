@@ -17,7 +17,92 @@
         display: none !important;
     }
 }
+.back-link {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 9999; /* Ensures it stays above all other elements */
+    background: rgba(10, 25, 47, 0.9); /* Using --brand-blue with transparency */
+    backdrop-filter: blur(8px);
+    color: var(--accent-gold); /* Using --accent-gold */
+    padding: 10px 22px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--accent-gold);
+    transition: var(--transition-smooth); /* Using your smooth transition variable */
+}
 
+.back-link:hover {
+    background: var(--accent-gold);
+    color: var(--brand-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Ergonomic Adjustment for Mobile */
+@media (max-width: 768px) {
+    .back-link {
+        top: 10px;
+        left: 10px;
+        padding: 8px 16px;
+        font-size: 0.75rem;
+    }
+}
+/* */
+
+/* Mobile Responsiveness for Bento Grid */
+@media (max-width: 768px) {
+    h1 { 
+        font-size: 3rem !important; /* Scale down large hero text */
+        letter-spacing: -1px;
+    }
+
+    .bento-grid {
+        grid-template-columns: 1fr; /* Stack cards in a single column */
+        grid-auto-rows: auto; /* Let height adjust based on content */
+        gap: 16px;
+    }
+
+    .featured, .wide {
+        grid-column: span 1; /* Force featured/wide items to take full width */
+    }
+
+    .bento-item {
+        min-height: 350px; /* Ensure enough height for the background image */
+    }
+
+    .bento-overlay .item-content {
+        padding: 24px; /* More ergonomic padding for smaller screens */
+    }
+}
+/* */
+
+/* Responsive Back Button */
+@media (max-width: 768px) {
+    .back-link {
+        top: auto;
+        bottom: 20px; /* Move to bottom for "Thumb-Driven" ergonomics on mobile */
+        left: 50%;
+        transform: translateX(-50%); /* Center it horizontally */
+        width: 80%; /* Wider button for easier tapping */
+        text-align: center;
+        font-size: 0.9rem;
+        padding: 14px;
+        box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.4);
+        z-index: 10000;
+    }
+
+    .back-link:hover {
+        transform: translateX(-50%) translateY(-2px); /* Maintain centering on hover */
+    }
+    
+    /* Ensure the main nav logo doesn't collide with buttons */
+    .nav-container {
+        padding: 0 15px;
+    }
+}
 /* --- 2. Hamburger to 'X' Animation --- */
 .menu-toggle {
     display: flex;
@@ -1205,5 +1290,4 @@ nav.scrolled .mobile-nav-links li a:hover {
     }
 }   
     /* Optional: Stack the buttons vertically on mobile for ergonomics */
-
 }
