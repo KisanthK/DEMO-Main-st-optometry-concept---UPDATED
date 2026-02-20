@@ -22,7 +22,7 @@
     top: 20px;
     left: 20px;
     z-index: 9999; /* Ensures it stays above all other elements */
-    background: rgba(10, 25, 47, 0.9); /* Using --brand-blue with transparency */
+    background: rgba(0,174,239); /* Using --brand-blue with transparency */
     backdrop-filter: blur(8px);
     color: var(--accent-gold); /* Using --accent-gold */
     padding: 10px 22px;
@@ -1291,4 +1291,5 @@ nav.scrolled .mobile-nav-links li a:hover {
 }   
     /* Optional: Stack the buttons vertically on mobile for ergonomics */
 }
+
 
